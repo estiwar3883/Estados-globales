@@ -12,12 +12,12 @@ export default function RoleContent() {
   const content = user ? ROLE_CONTENT[user.role] || ROLE_CONTENT.guest : ROLE_CONTENT.guest;
 
   const roleIconMap = {
-    admin: "👨‍💼",
-    student: "👨‍🎓",
-    guest: "👤",
+    admin: "",
+    student: "",
+    guest: "",
   };
 
-  const icon = roleIconMap[user?.role] || "👤";
+  const icon = roleIconMap[user?.role] || "";
 
   const contentStyle = {
     padding: "20px",

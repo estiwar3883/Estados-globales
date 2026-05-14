@@ -8,7 +8,7 @@ export default function LoginButton() {
     error,
   } = useUser();
 
-  const [email, setEmail] = useState("ana@example.com");
+  const [email, setEmail] = useState("Ana@example.com");
   const [name, setName] = useState("Ana Pérez");
   const [role, setRole] = useState("student");
 
