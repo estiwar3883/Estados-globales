@@ -1,15 +1,12 @@
 import { useUser } from "../hooks/useUser";
 
-export default function ProtectedView({
-  children,
-}) {
-  const { user } = useUser();
+export default function ProtectedView({ children }) {
+  const { isAuthenticated } = useUser();
 
-  if (!user) {
+  if (!isAuthenticated) {
     return (
       <p>
-        Debes iniciar sesión para ver este
-        contenido
+        Debes iniciar sesión para ver este contenido.
       </p>
     );
   }

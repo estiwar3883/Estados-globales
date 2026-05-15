@@ -1,3 +1,4 @@
+import { ROLE_LABELS } from "../constants/userRoles";
 import { useUser } from "../hooks/useUser";
 
 export default function UserProfile() {
@@ -11,40 +12,26 @@ export default function UserProfile() {
     );
   }
 
-  const profileItemStyle = {
-    display: "flex",
-    justifyContent: "space-between",
-    padding: "12px 0",
-    borderBottom: "1px solid #eee",
-  };
-
-  const labelStyle = {
-    fontWeight: "600",
-    color: "#666",
-  };
-
-  const valueStyle = {
-    color: "#333",
-  };
+  const roleLabel = ROLE_LABELS[user.role] ?? user.role;
 
   return (
     <div>
-      <h2 style={{ color: "#333", marginBottom: "20px" }}>👤 Perfil de Usuario</h2>
+      <h2 className="profile__title">👤 Perfil de Usuario</h2>
 
-      <div style={profileItemStyle}>
-        <span style={labelStyle}>Nombre:</span>
-        <span style={valueStyle}>{user.name}</span>
+      <div className="profile__item">
+        <span className="profile__label">Nombre:</span>
+        <span className="profile__value">{user.name}</span>
       </div>
 
-      <div style={profileItemStyle}>
-        <span style={labelStyle}>Email:</span>
-        <span style={valueStyle}>{user.email}</span>
+      <div className="profile__item">
+        <span className="profile__label">Email:</span>
+        <span className="profile__value">{user.email}</span>
       </div>
 
-      <div style={{ ...profileItemStyle, borderBottom: "none" }}>
-        <span style={labelStyle}>Rol:</span>
-        <span style={{ ...valueStyle, backgroundColor: "#f0f0f0", padding: "4px 12px", borderRadius: "20px" }}>
-          {user.role.charAt(0).toUpperCase() + user.role.slice(1)}
+      <div className="profile__item">
+        <span className="profile__label">Rol:</span>
+        <span className="profile__value profile__role">
+          {roleLabel}
         </span>
       </div>
     </div>
